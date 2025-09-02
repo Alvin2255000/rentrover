@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Agency Signup | RentRover</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 40px 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            color: #fff;
+            transition: 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 26px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 500;
+            margin-top: 12px;
+            text-align: left;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        input, textarea {
+            margin-top: 8px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px #4caf50;
+        }
+
+        button {
+            padding: 12px;
+            margin-top: 22px;
+            background: linear-gradient(90deg, #4caf50, #388e3c);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #388e3c, #2e7d32);
+            transform: scale(1.03);
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Car Agency Signup</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="username">Username:</label>
+        {{ form.username }}
+        
+        <label for="email">Email:</label>
+        {{ form.email }}
+        
+        <label for="agency_name">Agency Name:</label>
+        {{ form.agency_name }}
+        
+        <label for="address">Address:</label>
+        {{ form.address }}
+        
+        <label for="contact_number">Contact Number:</label>
+        {{ form.contact_number }}
+        
+        <label for="password1">Password:</label>
+        {{ form.password1 }}
+        
+        <label for="password2">Confirm Password:</label>
+        {{ form.password2 }}
+        
+        <button type="submit">Signup</button>
+    </form>
+</div>
+
+</body>
+</html>

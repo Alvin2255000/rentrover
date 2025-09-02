@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Bookings</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Bookings</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Car</th>
+        <th>User</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>{{ booking.car.brand }} {{ booking.car.model }}</td>
+        <td>{{ booking.user.username }}</td>
+        <td>{{ booking.start_date }}</td>
+        <td>{{ booking.end_date }}</td>
+        <td>₹{{ booking.total_price }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No bookings found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

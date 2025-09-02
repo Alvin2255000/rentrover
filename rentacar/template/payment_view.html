@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Payments - Admin View</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+            background: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background: #333;
+            color: white;
+        }
+        tr:hover {
+            background: #f1f1f1;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Payment Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Card Number</th>
+                <th>Expiry Date</th>
+                <th>CVV</th>
+                <th>Amount</th>
+                <th>Paid At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                <td>{{ payment.name }}</td>
+                <td>{{ payment.card_number }}</td>
+                <td>{{ payment.expiry_date }}</td>
+                <td>{{ payment.cvv }}</td>
+                <td>{{ payment.amount }}</td>
+                <td>{{ payment.paid_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
